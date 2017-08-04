@@ -30,6 +30,7 @@ passport.use(new LocalStrategy(
             }
             // If none of the above, return the user
             return done(null, dbUser);
+            console.log("dbUser: ", dbUser)
         });
     }
 ));
