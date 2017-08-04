@@ -4,12 +4,19 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	<link rel="stylesheet" href="/assets/css/materialize.min.css" type="text/css" />
+	 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Doggy Date</title>
 </head>
 <body>
-	{{{ body }}}
+	
+	<div class="dd-container">
+	{{> header}}
+		{{{ body }}}
+	</div>
+	
+	{{> footer}}
 </body>
 	<script src="/assets/js/jquery-3.2.1.min.js"></script>
 	<script src="/assets/js/materialize.min.js"></script>
