@@ -1,4 +1,3 @@
-// Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
 
@@ -81,6 +80,7 @@ module.exports = function(app) {
             console.log('fb callback')
             res.json("successfully logged in");
         });
-    
-
+  app.get("/results", function(req, res) {
+    res.render("yelp_results");
+  });
 };
