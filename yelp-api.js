@@ -20,8 +20,14 @@ yelp.accessToken(clientId, clientSecret).then(response => {
     const firstResult = response.jsonBody.businesses[0];
     const prettyJson = JSON.stringify(firstResult, null, 4);
     console.log(prettyJson);
-    
+
     console.log("RESPONSE", response.jsonBody.businesses);
+
+    let parksObj = {
+      parks: prettyJson //data is a array of objects
+    };
+
+    res.render("yelp_results", parksObj);
   });
 }).catch(e => {
   console.log(e);
