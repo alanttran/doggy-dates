@@ -58,5 +58,7 @@ typings/
 .env
 
 .DS_Store
-config/config.json
 
+=======
+# Configuration settings
+config.json

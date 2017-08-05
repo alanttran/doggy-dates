@@ -1,0 +1,31 @@
+
+<h1>Dog Parks Near You</h1>
+
+<button id="parks">Show Parks</button>
+
+<div id="park-results" class="active">
+	<table>
+		<thead>
+			<tr>
+				<th>Image</th>
+				<th>Park Name</th>
+				<th>Rating</th>
+				<th>Address</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each parks}}
+				<tr>
+					<td><img src="{{this.image_url}}" width="200px"></td>
+					<td><h5><a href="{{this.url}}" target="_blank">{{this.name}}</a></h5></td>
+					<td><p>{{this.rating}}</p></td>
+					<td><p>
+						{{this.location.address1}} <br>
+						{{this.location.city}} {{this.location.state}} {{this.location.zip}}
+					</p></td>				
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
+
