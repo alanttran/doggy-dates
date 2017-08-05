@@ -11,9 +11,14 @@ module.exports = function(sequelize, DataTypes) {
 				isUrl: true
 			}
 		},
+		// zip_code: {
+        //     type: DataTypes.INTEGER,
+        //     validate: {
+        //         len: [5,5]
+        //     }
+        // },
 		energy_level: {
-			type: DataTypes.STRING
-			
+			type: DataTypes.STRING	
 		},
 		sex: {
 			type: DataTypes.STRING
@@ -25,6 +30,17 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.DATEONLY
 		}
 	});
+
+
+	Dogs.associate = function(models) {
+	// We're saying that a Post should belong to an Author
+	// A Post can't be created without an Author due to the foreign key constraint
+		Dogs.belongsTo(models.User, {
+		  foreignKey: {
+		    allowNull: false
+		  }
+		});
+	};
 
 	return Dogs;
 }

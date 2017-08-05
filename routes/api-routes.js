@@ -13,6 +13,15 @@ module.exports = function(app) {
         res.json("/members");
     });
 
+
+    app.post("/profile_form", function(req, res){
+        console.log('POSTING');
+        db.Dogs.create(req.body).then(function(data) {
+          res.redirect("/");
+        });
+        // console.log(req.body);
+    });
+
     // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
     // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
     // otherwise send back an error
@@ -30,7 +39,6 @@ module.exports = function(app) {
         if (errors) {
             console.log("errors: " + JSON.stringify(errors));
         } else {
-
             db.User.create({
                 email: req.body.email,
                 password: req.body.password
