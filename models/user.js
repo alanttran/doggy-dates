@@ -4,10 +4,10 @@ var bcrypt = require("bcrypt-nodejs");
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        // name: {
+        //     type: DataTypes.STRING,
+        //     // allowNull: false,
+        // },
 
         // The email cannot be null, and must be a proper email before creation
         email: {
@@ -23,12 +23,12 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        zip_code: {
-            type: DataTypes.INTEGER,
-            validate: {
-                len: [5,5]
-            }
-        }
+        // zip_code: {
+        //     type: DataTypes.INTEGER,
+        //     validate: {
+        //         len: [5,5]
+        //     }
+        // }
     });
     // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
     User.prototype.validPassword = function(password) {
