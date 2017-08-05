@@ -59,6 +59,3 @@ typings/
 
 .DS_Store
 
-# Configuration settings
-config/config.json
-config.json
