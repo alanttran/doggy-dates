@@ -28,4 +28,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
+  app.get("/profile-form", function(req, res){
+    res.render('profile_form');
+  });
 };
