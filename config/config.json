@@ -1,44 +1,26 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "root",
     "database": "doggie_date_db",
     "host": "localhost",
     "port": 3307,
-=======
-    "password": "&&iH6I>(ashT",
-    "database": "dogs_db",
-    "host": "127.0.0.1",
->>>>>>> c4b14018581843689bee787bc437b5dbe1f83f00
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-<<<<<<< HEAD
     "password": "root",
-    "database": "doggie_date_db",
+    "database": "doggie_date_db" ,
     "host": "localhost",
     "port": 3307,
-=======
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
->>>>>>> c4b14018581843689bee787bc437b5dbe1f83f00
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-<<<<<<< HEAD
     "password": "root",
     "database": "doggie_date_db",
     "host": "localhost",
     "port": 3307,
-=======
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
->>>>>>> c4b14018581843689bee787bc437b5dbe1f83f00
     "dialect": "mysql"
   }
 }

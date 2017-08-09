@@ -11,7 +11,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.render("signup");
   });
 
   app.get("/login", function(req, res) {
@@ -19,7 +19,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render("login");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -28,4 +28,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
+  app.get("/profile-form", function(req, res){
+    res.render('profile_form');
+  });
 };
