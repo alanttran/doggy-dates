@@ -28,7 +28,6 @@ $(document).ready(function() {
       email: email,
       password: password
     }).then(function(data) {
-      window.location.replace(data);
       console.log('signup error!');
       // If there's an error, handle it by throwing up a boostrap alert
     }).catch(handleLoginErr);
