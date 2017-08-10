@@ -1,6 +1,7 @@
-var db = require("../models");
+let db = require("../models");
 const yelp = require('yelp-fusion');
-var passport = require("../config/passport");
+let passport = require("../config/passport");
+let cookie = require("cookie");
 
 module.exports = function(app) {
     // Using the passport.authenticate middleware with our local strategy.
@@ -91,12 +92,27 @@ module.exports = function(app) {
             // The user is not logged in, send back an empty object
             res.json({});
         } else {
+
+            // Set a cookie on login
+            res.setHeader('Set-Cookie', cookie.serialize('id', req.user.id, {
+              httpOnly: true,
+              maxAge: 60 * 60 * 24 * 7 // 1 week 
+            }));
+
+            // Parse the cookies on the request 
+            var cookies = cookie.parse(req.headers.cookie || '');
+
+            // Get the user id set in the cookie 
+            var userCookie = cookies.id;
+            console.log(userCookie);
+
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
             res.json({
                 email: req.user.email,
                 id: req.user.id
             });
+            
         }
     });
 
