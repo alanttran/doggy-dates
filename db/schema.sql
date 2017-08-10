@@ -1,2 +1,2 @@
-drop database if exists dogs_db;
-create database dogs_db;
+drop database if exists doggie_date_db;
+create database doggie_date_db;
