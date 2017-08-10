@@ -36,4 +36,9 @@ module.exports = function(app) {
   app.get("/profile-form", function(req, res){
     res.render('profile_form');
   });
+
+  app.get("/profile-form-submit", function(req, res){
+    res.render('profile_form');
+  });
+
 };

@@ -1,6 +1,6 @@
 <h1>Profile form</h1>
 
-<form action="/profile_form" method="post" id="dog_form">
+<form action="/profile-form-submit" method="post" id="dog_form">
 	Dog name:<br>
 	<input type="text" name="dog_name" value="">
 	<br>
@@ -9,10 +9,14 @@
 	<br><br>
 	Location: (zip code or city state)<br>
 	<input type="text" name="location" value="">
+{{!-- 	<br><br>
+	Birthdate:<br>
+	<input type="text" name="dob" value="" class="datepicker"> --}}
 	<br><br>
 	Birthdate:<br>
-	<input type="text" name="dob" value="">
+	<input type="text" name="dob">
 	<br><br>
+	Energy level:<br>
 	<select name="energy_level">
 	  <option value="low">Low</option>
 	  <option value="medium">Medium</option>
@@ -20,11 +24,13 @@
 	  <option value="extra">Extra High</option>
 	</select>
 	<br><br>
+	Sex:<br>
 	<select name="sex">
 	  <option value="male">Male</option>
 	  <option value="female">Female</option>
 	</select>
 	<br><br>
+	Size:<br>
 	<select name="size">
 		<option value="xsmall">X-Small</option>
 		<option value="small">Small</option>
