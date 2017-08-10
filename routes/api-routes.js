@@ -37,13 +37,15 @@ module.exports = function(app) {
         var errors = req.validationErrors();
 
         if (errors) {
-            console.log("errors: " + JSON.stringify(errors));
+            var errorsObj = JSON.stringify(errors)
+            console.log("errors: " + errorsObj);
+            
         } else {
             db.User.create({
                 email: req.body.email,
                 password: req.body.password
             }).then(function() {
-                res.redirect(307, "/api/login");
+                res.redirect("/api/login");
             });
         }
     });
