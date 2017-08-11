@@ -14,10 +14,9 @@ module.exports = function(app) {
         res.json("/members");
     });
 
-
     app.post("/profile-form-submit", function(req, res){
         db.Dogs.create(req.body).then(function(data) {
-          res.redirect("/profile-form");
+          res.redirect("/profile");
         });
     });
 
@@ -94,7 +93,7 @@ module.exports = function(app) {
             // The user is not logged in, send back an empty object
             res.json({});
         } else {
-
+            
             // Set a cookie on login
             res.setHeader('Set-Cookie', cookie.serialize('id', req.user.id, {
               httpOnly: true,
