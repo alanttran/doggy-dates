@@ -1,20 +1,17 @@
-let db = require("../models");
+var db = require("../models");
 const yelp = require('yelp-fusion');
-let passport = require("../config/passport");
-let cookie = require("cookie");
+var passport = require("../config/passport");
+var cookieParser = require('cookie-parser')
 
 module.exports = function(app) {
     // Using the passport.authenticate middleware with our local strategy.
     // If the user has valid login credentials, send them to the members page.
     // Otherwise the user will be sent an error
-    app.post("/api/login", passport.authenticate("local", {
+    app.post("/signin", passport.authenticate("local", {
         successRedirect: "/profile",
-        failureRedirect: "/login"
+        failureRedirect: "/signup"
     }), function(req, res) {
-        // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
-        // So we're sending the user back the route to the members page because the redirect will happen on the front end
-        // They won't get this or even be able to access this page if they aren't authed
-        res.json("/members");
+       console.log("user logged in");
     });
 
     app.post("/profile-form-submit", function(req, res){
@@ -47,11 +44,18 @@ module.exports = function(app) {
             db.User.create({
                 email: req.body.email,
                 password: req.body.password
-            }).then(function() {
+            }).then(function(user) {
+                    passport.authenticate("local")(req, res, function(){
+                        console.log("user logged in");
+                         console.log('Session ID is', req.user.dataValues.id); 
+                        // console.log('Cookies: ', req.cookies); 
+                        res.redirect("/new-profile");
+                        
 
-
-                res.redirect("/new-profile");
-
+                    })
+            
+                
+               
             });
         };
         
@@ -163,14 +167,23 @@ module.exports = function(app) {
         '/auth/facebook/callback',
         passport.authenticate('facebook', { failureRedirect: '/' }),
         function(req, res) {
-            if ( req.user._options.isNewRecord ) {
-                // send to form to fill out for new pets
-                res.render('new_profile_form');
-            } else {
-                // send to their list of pets?
-                res.render('new_profile_form');
-            }
-            console.log('fb callback in api routes, new user?', req.user._options.isNewRecord)
+
+            console.log('fb callback in api routes, new user?', req);
+            db.Facebook.findAll({}).then(function(user) {
+                  if(user) {
+                      res.render('new_profile_form');
+                  } else {
+                    res.render('profile');
+                  } 
+                })
+            // if (req.user._options.isNewRecord) {
+            //     // send to form to fill out for new pets
+            //     res.render('new_profile_form');
+            // } else {
+            //     // send to their list of pets?
+            //     res.render('profile');
+            // }
+            
         }
     );
 

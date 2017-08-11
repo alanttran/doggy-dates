@@ -5,6 +5,7 @@ var expressValidator = require('express-validator');
 var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
+var LocalStrategy = require("passport-local");
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
@@ -15,12 +16,14 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(bodyParser.json());
+var cookieParser = require('cookie-parser')
 app.use(express.static("public"));
 
 // We need to use sessions to keep track of our user's login status
 app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 //Requiring Handlebars
 let exphbs = require("express-handlebars");
