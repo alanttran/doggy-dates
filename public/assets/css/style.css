@@ -24,5 +24,6 @@ html, body{
 .dd-matches-container{
 	margin-left: 330px;
 	/* background-color: grey; */
+	padding-bottom: 80px;
 }
 

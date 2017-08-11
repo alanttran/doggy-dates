@@ -1,0 +1,11 @@
+.sidenav-header{
+	height: 64px;
+	color: #fff;
+    font-size: 2.1rem;
+    padding-top: 7px;
+        background-color: #ee6e73;
+}
+
+.sidenav-header a{
+	color: #fff;
+}

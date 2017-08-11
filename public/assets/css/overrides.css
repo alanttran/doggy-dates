@@ -5,4 +5,13 @@
 .side-nav{
 	top: auto;
 	margin-bottom: auto;
+	z-index: -1;
+}
+
+.side-nav.fixed{
+	top: 0;
+}
+
+.collection{
+	margin-bottom: 0;
 }
