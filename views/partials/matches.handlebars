@@ -1,49 +1,17 @@
-<h1>Meet Your Match</h1>
+<h1>Find Your Match</h1>
 
 <div id="filter-form">
 
 <div>
 <button onclick="resetForm()">Reset</button>
 </div>
-
-<form  action="/matches-submit" method="post" id="dog_form">
-    Energy level:<br>
-    <select id="energy_level" name="energy_level" class="select">
-      <option value="select" disabled selected>Select an Energy Level</option>
-      <option value="low">Low</option>
-      <option value="medium">Medium</option>
-      <option value="high">High</option>
-      <option value="extra">Extra High</option>
-    </select>
-    <br><br>
-    Sex:<br>
-    <select id="sex" name="sex">
-      <option value="select" disabled selected>Select a Gender </option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-    <br><br>
-    Size:<br>
-    <select id="size" name="size">
-        <option value="select" disabled selected>Select a Size</option>
-        <option value="xsmall">X-Small</option>
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-        <option value="xlarge">X-Large</option>
-    </select>
-{{!--   <br><br>
-    <input type="submit" value="Submit"> --}}
-</form> 
-
-
-
+{{> profile-filter}}
 </div>
 
 <div id="dog-results" class="active">
 
     <table id="dog-table">
-        <thead>
+{{!--         <thead>
             <tr>
                 <th>Dog Name</th>
                 <th>Dog Photo</th>
@@ -51,16 +19,16 @@
                 <th>Dog Gender</th>
                 <th>Dog Size</th>
             </tr>
-        </thead>
+        </thead> --}}
         <tbody>
             {{#each all_dogs}}
-                <tr>
+                <tr class="collection">
+                    <td class="image"><img src="{{this.image}}" class="circle" height="120px" width="120px"></td>
                     <td class="dog_name">{{this.dog_name}}</td>
-                    <td class="image"><img src="{{this.image}}" width="200px"></td>
-                    <td class="energy_level">{{this.energy_level}}</td>
                     <td class="sex">{{this.sex}}</td>
                     <td class="size">{{this.size}}</td>
-                    <td class="meet"><button>Meet Me</button></td>
+                    <td class="energy_level">{{this.energy_level}} energy</td>
+                    <td class="send"><a href=""><i class="material-icons">send</i></a></td>
                 </tr>
             {{/each}}
         </tbody>
@@ -70,10 +38,7 @@
 
 {{!-- Matches Page --}}
 {{!-- <h2 style="text-align: center">Find A Match</h2>
-=======
-<h2>You've Got Matches!</h2>
 {{> profile-filter}}
->>>>>>> 8add2499243efe1f0a156fb4c2e50f68a68f704f
 <ul class="collection">
     <li class="collection-item avatar">
         <img src="/assets/img/corgi.jpg" alt="" class="circle">

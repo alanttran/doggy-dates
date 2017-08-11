@@ -33,7 +33,7 @@ h3{
 .dd-container{
 	min-height: 100%;
 	margin-bottom: -50px;
-	background-image: url("../img/cover_dog.jpg");
+/*	background-image: url("../img/cover_dog.jpg");*/
 }
 
 .dd-matches-container{
