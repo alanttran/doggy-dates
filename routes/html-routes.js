@@ -14,6 +14,11 @@ module.exports = function(app) {
     res.render("signup");
   });
 
+  app.get("/signup", function(req, res) {
+    // If the user already has an account send them to the members page
+    res.redirect("/");
+  });
+
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members login page
     if (req.user) {
@@ -44,4 +49,9 @@ module.exports = function(app) {
   app.get("/pet-pref", function(req, res){
     res.render('pet_pref');
   });
+
+  app.get("/profile-form-submit", function(req, res){
+    res.render('profile_form');
+  });
+
 };
