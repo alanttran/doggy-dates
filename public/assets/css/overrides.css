@@ -1,8 +1,23 @@
 .page-footer{
 	padding-top: 0;
 }
+.nav-wrapper{
+	background-color: #40c4ff;
+}
+.page-footer{
+	background-color: #00e676;
+}
 
 .side-nav{
 	top: auto;
 	margin-bottom: auto;
+	z-index: -1;
+}
+
+.side-nav.fixed{
+	top: 0;
+}
+
+.collection{
+	margin-bottom: 0;
 }
