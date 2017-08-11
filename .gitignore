@@ -60,4 +60,4 @@ typings/
 .DS_Store
 
 # Configuration settings
-config.json
+config/config.json
