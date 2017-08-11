@@ -1,6 +1,12 @@
 .page-footer{
 	padding-top: 0;
 }
+.nav-wrapper{
+	background-color: #40c4ff;
+}
+.page-footer{
+	background-color: #00e676;
+}
 
 .side-nav{
 	top: auto;
