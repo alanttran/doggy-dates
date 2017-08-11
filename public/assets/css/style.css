@@ -7,6 +7,7 @@
 @import url('components/registration.css');
 @import url('components/sidenav.css');
 @import url('components/survey.css');
+@import url('components/dog_results.css');
 @import url('overrides.css');
 
 /*General Styles*/
@@ -18,5 +19,10 @@ html, body{
 .dd-container{
 	min-height: 100%;
 	margin-bottom: -50px;
+}
+
+.dd-matches-container{
+	margin-left: 330px;
+	/* background-color: grey; */
 }
 
