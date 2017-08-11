@@ -8,7 +8,7 @@ $("select").change(function(event){
 
 function resetForm() {
  	console.log('resetting ...');
-    $('#energy_level').prop('selectedIndex', 2);
+	$('#dog_form')[0].reset();
 }
 
 function createFilters() {

@@ -38,7 +38,6 @@ module.exports = function(app) {
   });
 
   app.get("/new-profile", function(req, res){
-    console.log('new profile route');
     res.render('new_profile_form');
   });
 
