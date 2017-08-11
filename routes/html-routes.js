@@ -7,7 +7,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
 
   app.get("/", function(req, res) {
-    // If the user already has an account send them to the members page
+    // If the user does not have an account send them to the members sign-up page
     if (req.user) {
       res.redirect("/members");
     }
@@ -15,7 +15,7 @@ module.exports = function(app) {
   });
 
   app.get("/login", function(req, res) {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the members login page
     if (req.user) {
       res.redirect("/members");
     }
@@ -28,7 +28,20 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  app.get("/profile-form", function(req, res){
-    res.render('profile_form');
+  app.get("/new-profile-form", function(req, res){
+    console.log('new profile route');
+    res.render('new_profile_form');
+  });
+
+  app.get("/profile", function(req, res){
+    res.render('profile');
+  });
+
+  app.get("/matches", function(req, res){
+    res.render('matches');
+  });
+
+  app.get("/pet-pref", function(req, res){
+    res.render('pet_pref');
   });
 };
