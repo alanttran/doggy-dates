@@ -59,9 +59,5 @@ typings/
 
 .DS_Store
 
-<<<<<<< HEAD
-=======
 # Configuration settings
 config.json
-=======
->>>>>>> 95622651bda6016890c7de0a5a2f74de8c8b656b

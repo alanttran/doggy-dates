@@ -116,8 +116,14 @@ module.exports = function(app) {
         '/auth/facebook/callback', 
         passport.authenticate('facebook', { failureRedirect: '/' }),
         function(req, res) {
-            console.log('fb callback')
-            res.json("successfully logged in");
+            if ( req.user._options.isNewRecord ) {
+                // send to form to fill out for new pets
+                res.render('new_profile_form');
+            } else {
+                // send to their list of pets?
+                res.render('new_profile_form');
+            }
+            console.log('fb callback in api routes, new user?', req.user._options.isNewRecord)
         }
      );
 
