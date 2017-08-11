@@ -63,3 +63,5 @@ config.json
 db/schema.sql
 config/config.json
 
+# Configuration settings
+config/config.json

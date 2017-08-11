@@ -11,12 +11,13 @@ module.exports = function(sequelize, DataTypes) {
 				isUrl: true
 			}
 		},
-		// zip_code: {
-        //     type: DataTypes.INTEGER,
-        //     validate: {
-        //         len: [5,5]
-        //     }
-        // },
+		zip_code: {
+            type: DataTypes.INTEGER,
+        },
+        dob: {
+			// type: DataTypes.DATEONLY
+			type: DataTypes.INTEGER,
+		},
 		energy_level: {
 			type: DataTypes.STRING	
 		},
@@ -25,22 +26,19 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		size: {
 			type: DataTypes.STRING
-		},
-		dob: {
-			type: DataTypes.DATEONLY
 		}
 	});
 
 
-	Dogs.associate = function(models) {
-	// We're saying that a Post should belong to an Author
-	// A Post can't be created without an Author due to the foreign key constraint
-		Dogs.belongsTo(models.User, {
-		  foreignKey: {
-		    allowNull: false
-		  }
-		});
-	};
+	// Dogs.associate = function(models) {
+	// // We're saying that a Post should belong to an Author
+	// // A Post can't be created without an Author due to the foreign key constraint
+	// 	Dogs.belongsTo(models.User, {
+	// 	  foreignKey: {
+	// 	    allowNull: false
+	// 	  }
+	// 	});
+	// };
 
 	return Dogs;
 }

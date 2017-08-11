@@ -15,12 +15,10 @@ module.exports = function(app) {
     });
 
 
-    app.post("/profile_form", function(req, res){
-        console.log('POSTING');
+    app.post("/profile-form-submit", function(req, res){
         db.Dogs.create(req.body).then(function(data) {
-          res.redirect("/");
+          res.redirect("/profile-form");
         });
-        // console.log(req.body);
     });
 
     // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -55,7 +53,7 @@ module.exports = function(app) {
         
     });
 
-    app.get("/results", function(req, res) {
+    app.get("/yelp-results", function(req, res) {
         const clientId = 'iMwvylbqrydUu45E4CD0Hg';
         const clientSecret = 'IzZ1gqChie6JtsJKt6qjzEfj2eCesJlEPzUIUcj5nU1FRxjAvDJLXvIOnGyfvgjC';
 
@@ -122,6 +120,29 @@ module.exports = function(app) {
         }
     });
 
+    app.get("/dog-results", function(req, res){
+        db.Dogs.findAll().then(data => {
+
+        let allDogsObj = {
+            all_dogs: data //data is a array of objects
+        };
+          res.render('dog_results', allDogsObj);
+        })     
+    });
+
+    app.post("/dog-results-submit", function(req, res){
+
+        console.log(req.body);
+
+        // db.Dogs.findAll().then(data => {
+
+        //     let allDogsObj = {
+        //         all_dogs: data //data is a array of objects
+        //     };
+        //     res.render('dog_results', allDogsObj);
+        // })     
+    });
+
     // Redirect the user to Facebook for authentication.  When complete,
     // Facebook will redirect the user back to the application at
     //     /auth/facebook/callback
@@ -138,8 +159,14 @@ module.exports = function(app) {
         '/auth/facebook/callback',
         passport.authenticate('facebook', { failureRedirect: '/' }),
         function(req, res) {
-            console.log('fb callback')
-            res.json("successfully logged in");
+            if ( req.user._options.isNewRecord ) {
+                // send to form to fill out for new pets
+                res.render('new_profile_form');
+            } else {
+                // send to their list of pets?
+                res.render('new_profile_form');
+            }
+            console.log('fb callback in api routes, new user?', req.user._options.isNewRecord)
         }
     );
 
