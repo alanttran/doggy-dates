@@ -1,3 +1,4 @@
+{{> header-logged-in}}
 <h1>Find a doggy date</h1>
 
 <div id="filter-form">
@@ -6,7 +7,7 @@
 <button onclick="resetForm()">Reset</button>
 </div>
 
-<form{{!--  action="/dog-results-submit" method="post"  --}}id="dog_form">
+<form {{!--  action="/dog-results-submit" method="post"  --}}id="dog_form">
 	Energy level:<br>
 	<select id="energy_level" name="energy_level" class="select">
 	  <option value="select" disabled selected>Select an Energy Level</option>
