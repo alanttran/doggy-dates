@@ -86,8 +86,6 @@ module.exports = function(app) {
     // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
     // otherwise send back an error
     app.post("/", function(req, res) {
-        // console.log(req.body);
-        // 
 
         req.checkBody('email', 'The email you entered is invalid, please try again.').isEmail();
         req.checkBody('email', 'Email address must be between 4-100 characters long, please try again.').len(4, 100);
