@@ -1,10 +1,12 @@
 
 $(document).ready(function() {
-	let dob = $('#dob').html();
+	let dob = $('#dob').val();
+
 
 	let dobFormat = $.format.date(dob, "dd/MM/yyyy");
+	console.log(dobFormat);
 
-	$('#dob').html(dobFormat);
+	$('#dob').val(dobFormat);
 
 
 	function calculateBday() {

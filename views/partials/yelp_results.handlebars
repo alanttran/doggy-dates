@@ -1,6 +1,13 @@
 <h1>Find a Dog Park</h1>
-<form>
-	
+<form action="/yelp-results" method="POST">
+	<div class="row">
+	    <div class="input-field col s6">
+	      <input placeholder="92126" id="zip_code" name="zip_code" type="text" class="validate">
+	      <label class="active" for="zip_code">Search By Zip Code</label>
+	    </div>
+	    <input class="btn btn-default blue" type="submit" value="Submit">
+  </div>
+        
 </form>
 <div id="park-results" class="active">
 	<table>
@@ -15,7 +22,7 @@
 		<tbody>
 			{{#each parks}}
 				<tr>
-					<td><img src="{{this.image_url}}" width="200px"></td>
+					<td><img src="{{this.image_url}}" class="circle" height="120px" width="120px"></td>
 					<td><h5><a href="{{this.url}}">{{this.name}}</a></h5></td>
 					<td><p>{{this.rating}}</p></td>
 					<td><p>

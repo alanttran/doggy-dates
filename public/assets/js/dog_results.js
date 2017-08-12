@@ -10,10 +10,15 @@ $("select").change(function(event){
 
 function resetForm() {
  	console.log('resetting ...');
-	$('#dog_form')[0].reset();
 
-	let tr = $("tr");
-	tr[i].style.display = "";
+    $('#dog_form').prop('selected', function() {
+        return this.defaultSelected;
+    });
+
+    $('#sex').prop('selected', function() {
+        return this.defaultSelected;
+    });
+
 }
 
 function createFilters() {
@@ -52,9 +57,9 @@ function filterResults(filterObj, activeFilters) {
 	for (let i = 0; i < tr.length; i++) {
 
 		
-		let sex_td = tr[i].getElementsByTagName("td")[2];
-		let size_td = tr[i].getElementsByTagName("td")[3];
-		let energy_td = tr[i].getElementsByTagName("td")[4];
+		let sex_td = tr[i].getElementsByTagName("td")[3];
+		let size_td = tr[i].getElementsByTagName("td")[4];
+		let energy_td = tr[i].getElementsByTagName("td")[5];
 
 		let numMatchFilters = 0;
 

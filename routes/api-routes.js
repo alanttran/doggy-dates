@@ -81,6 +81,23 @@ module.exports = function(app) {
 
     });
 
+    app.get("/api/dog_data", function(req, res) {
+        db.Dogs.findById(1).then(data => {
+
+            // console.log(data.dob);
+
+            // let dob = data.dob
+
+            // let dogObj = {
+            //     dog: data //data is a array of objects
+            // };
+
+            res.json({
+                data: data
+            });   
+        });   
+
+    });
 
     // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
     // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
@@ -154,6 +171,40 @@ module.exports = function(app) {
 
     });
 
+    app.post("/yelp-results", function(req, res) {
+
+        let zip = req.body.zip_code;
+
+        console.log(zip);
+
+        const clientId = 'iMwvylbqrydUu45E4CD0Hg';
+        const clientSecret = 'IzZ1gqChie6JtsJKt6qjzEfj2eCesJlEPzUIUcj5nU1FRxjAvDJLXvIOnGyfvgjC';
+
+        let searchTerm = "dog parks";
+        let searchLoc = zip;
+
+        const searchRequest = {
+            term: searchTerm,
+            location: searchLoc
+        };
+
+        yelp.accessToken(clientId, clientSecret).then(response => {
+            const client = yelp.client(response.jsonBody.access_token);
+
+            client.search(searchRequest).then(response => {
+                const firstResult = response.jsonBody.businesses[0];
+                const prettyJson = JSON.stringify(firstResult, null, 4);
+
+                let parksObj = {
+                    parks: response.jsonBody.businesses //data is a array of objects
+                };
+
+                res.render("yelp", parksObj);
+
+            });
+        });
+    });
+
 
     app.get("/api/yelp-results", function(req, res) {
         const clientId = 'iMwvylbqrydUu45E4CD0Hg';
@@ -225,13 +276,13 @@ module.exports = function(app) {
     app.get("/matches", function(req, res){
 
         // Pass in user data for sidebar
-        // db.Dogs.findById(1).then(data => {
+        db.Dogs.findById(1).then(data => {
 
-        //     dogObj = {
-        //         dog: data //data is a array of objects
-        //     };
+            dogObj = {
+                dog: data //data is a array of objects
+            };
 
-        // })       
+        })       
 
         db.Dogs.findAll().then(data => {
 
@@ -247,6 +298,7 @@ module.exports = function(app) {
     app.post("/matches-submit", function(req, res){
         console.log(req.body);
     });
+
     app.get("/matches", function(req, res){
         db.Dogs.findAll().then(data => {
 
@@ -256,10 +308,7 @@ module.exports = function(app) {
           res.render('profile_matches', allDogsObj);
         })     
     });
-      
-    app.post("/matches-submit", function(req, res){
-        console.log(req.body);
-    });
+    
 
     // Redirect the user to Facebook for authentication.  When complete,
     // Facebook will redirect the user back to the application at

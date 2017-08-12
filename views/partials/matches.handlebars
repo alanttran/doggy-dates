@@ -1,21 +1,12 @@
 <h4>Find Your Match</h4>
 
 <div id="filter-form">
-{{> profile-filter}}
+    {{> profile-filter}}
 </div>
 
 <div id="dog-results" class="active" style="margin-right: 30px;">
 
     <table id="dog-table">
-{{!--         <thead>
-            <tr>
-                <th>Dog Name</th>
-                <th>Dog Photo</th>
-                <th>Dog Energy Level</th>
-                <th>Dog Gender</th>
-                <th>Dog Size</th>
-            </tr>
-        </thead> --}}
         <tbody>
             {{#each all_dogs}}
                 <tr class="collection">

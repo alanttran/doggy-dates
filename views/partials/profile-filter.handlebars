@@ -1,42 +1,40 @@
 
 
-<form  action="/matches-submit" method="post" id="dog_form">
-<div class="dd-profile-filter-container">
-    <div class="dd-profile-filter-container-item">
-        <select id="sex" name="sex">
-          <option value="select" disabled selected>Select a Gender </option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
+<form {{!--  action="/matches-submit" method="post"  --}}id="dog_form">
+    <div class="dd-profile-filter-container">
+        <div class="dd-profile-filter-container-item">
+            <select id="sex" name="sex">
+              <option value="select" disabled selected>Select a Gender </option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="dd-profile-filter-container-item">
+            <select id="size" name="size">
+                <option value="select" disabled selected>Select a Size</option>
+                <option value="xsmall">X-Small</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="xlarge">X-Large</option>
+            </select>
+        </div>
+        <div class="dd-profile-filter-container-item">
+            <select id="energy_level" name="energy_level" class="select">
+              <option value="select" disabled selected>Select an Energy Level</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+              <option value="extra">Extra High</option>
+            </select>
+        </div>
+        <div class="dd-profile-filter-container-item">
+            <button class="btn btn-default blue" onclick="resetForm()">Reset</button>
+        </div>
     </div>
-    <div class="dd-profile-filter-container-item">
-        <select id="size" name="size">
-            <option value="select" disabled selected>Select a Size</option>
-            <option value="xsmall">X-Small</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="xlarge">X-Large</option>
-        </select>
-    </div>
-    <div class="dd-profile-filter-container-item">
-        <select id="energy_level" name="energy_level" class="select">
-          <option value="select" disabled selected>Select an Energy Level</option>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-          <option value="extra">Extra High</option>
-        </select>
-    </div>
-    </div>
-{{!--   <br><br>
-    <input type="submit" value="Submit"> --}}
 </form> 
 
 
-<div>
-<button class="btn btn-default blue" onclick="resetForm()">Reset</button>
-</div>
 
 {{!-- 
 
