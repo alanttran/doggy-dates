@@ -13,10 +13,22 @@ Find dogs for dates
 ## Built With
 
 * [MaterializeCSS](http://materializecss.com/) - A modern responsive front-end framework based on Material Design
-* bcrypt-nodejs
-* browser-cookies
-* passport
-* yelp-fusion
+* jquery-dateFormat
+* Bcrypt-nodejs
+* Body-parser
+* Browser-cookies
+* Cookie
+* Escape-html
+* Express
+* Handlebars
+* Sessions
+* mySQL
+* Passport
+* Path
+* Sequelize
+* URL
+* Yelp-fusion
+
 
 ## Project Requirements
 
@@ -36,7 +48,7 @@ Find dogs for dates
 * **Margeret Choi** - *javascript* - [margaretchoi](https://github.com/margaretchoi)
 * **Waqas Alsubayee** - *javascript* - [Waqas84](https://github.com/Waqas84)
 
-See also the list of [contributors](https://github.com/alanttran/JobBnB/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/alanttran/doggy-dates/graphs/contributors) who participated in this project.
 
 ## Acknowledgments
 
