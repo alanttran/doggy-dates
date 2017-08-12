@@ -1,7 +1,7 @@
 {{> header-logged-in}}
 {{>sidenav}}
 <div class="dd-matches-container">
-    <h1>My Dog's Profile</h1>
+    <h1>{{dog.dog_name}}'s Profile</h1>
 	<div id="user-info" style="max-width: 500px;">
 		<img src="{{dog.image}}" width="200px">
 		<br>
@@ -19,5 +19,6 @@
 		<br><br>
 		<i class="material-icons" style="vertical-align: -0.4rem; padding-right: 5px;">cake</i>Birthday
 		<input value="{{dog.dob}}" disabled type="text" >
+		<a href="">Edit Profile</a>
 	</div>
 </div>
