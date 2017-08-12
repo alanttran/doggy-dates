@@ -1,19 +1,18 @@
 {{>sidenav}}
 <div class="dd-matches-container">
-    <h1>Dog's Profile</h1>
+    <h1>My Dog's Profile</h1>
 	<div id="user-info">
 		<img src="{{dog.image}}" width="200px">
 		<br>
-		Dog name: {{dog.dog_name}}
+		<h3>{{dog.dog_name}}</h3>
+		<h5><span id="age"></span> {{dog.sex}}</h5>
 		<br>
-		Dog location: {{dog.zip_code}}
+		<b><i class="material-icons">place</i>{{dog.zip_code}}</b>
 		<br>
-		Birthday: {{dog.dob}}
+		<i class="material-icons">info_outline</i>{{dog.size}} size
 		<br>
-		Energy Level: {{dog.energy_level}}
-		<br>
-		Sex: {{dog.sex}}
-		<br>
-		Size: {{dog.size}}
+		<i class="material-icons">info_outline</i>{{dog.energy_level}} energy
+		<br><br>
+		<i class="material-icons">cake</i><span id="dob">{{dog.dob}}</span>
 	</div>
 </div>

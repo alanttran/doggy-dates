@@ -12,10 +12,9 @@ $(document).ready(function() {
 
 		var today = new Date();
 		var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
-		$('#age').html(age+' years old');
+		$('#age').html(age+' year old');
 	}
 
-	
 	calculateBday();
 
 });

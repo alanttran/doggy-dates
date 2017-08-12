@@ -1,5 +1,7 @@
 'use strict';
 
+$(document).ready(function(){
+
 $("select").change(function(event){
     event.preventDefault();
     createFilters();
@@ -110,3 +112,9 @@ function filterResults(filterObj, activeFilters) {
 	// }
 
 };
+
+
+    $('.modal').modal();
+});
+
+

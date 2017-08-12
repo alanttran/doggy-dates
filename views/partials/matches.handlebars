@@ -24,16 +24,33 @@
             {{#each all_dogs}}
                 <tr class="collection">
                     <td class="image"><img src="{{this.image}}" class="circle" height="120px" width="120px"></td>
-                    <td class="dog_name">{{this.dog_name}}</td>
+                    <td class="dog_name"><h5>{{this.dog_name}}</h5></td>
                     <td class="sex">{{this.sex}}</td>
                     <td class="size">{{this.size}}</td>
                     <td class="energy_level">{{this.energy_level}} energy</td>
+                    <td class="send"><a href="#modal1"><i class="material-icons">terrain</i></a></td>
                     <td class="send"><a href=""><i class="material-icons">send</i></a></td>
                 </tr>
             {{/each}}
         </tbody>
     </table>
+
+ <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 </div>
+
+
 
 {{!-- Matches Page --}}
 {{!-- <h2 style="text-align: center">Find A Match</h2>
