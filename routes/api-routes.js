@@ -147,7 +147,39 @@ module.exports = function(app) {
                 };
 
                 console.log("RESULTS JSON", response.jsonBody.businesses);
-                res.render("yelp_results", parksObj);
+                res.render("yelp", parksObj);
+
+            });
+        });
+
+    });
+
+
+    app.get("/api/yelp-results", function(req, res) {
+        const clientId = 'iMwvylbqrydUu45E4CD0Hg';
+        const clientSecret = 'IzZ1gqChie6JtsJKt6qjzEfj2eCesJlEPzUIUcj5nU1FRxjAvDJLXvIOnGyfvgjC';
+
+        let searchTerm = "dog parks";
+        let searchLoc = "san diego, ca"
+
+        const searchRequest = {
+            term: searchTerm,
+            location: searchLoc
+        };
+
+        yelp.accessToken(clientId, clientSecret).then(response => {
+            const client = yelp.client(response.jsonBody.access_token);
+
+            client.search(searchRequest).then(response => {
+                const firstResult = response.jsonBody.businesses[0];
+                const prettyJson = JSON.stringify(firstResult, null, 4);
+
+                let parksObj = {
+                    parks: response.jsonBody.businesses //data is a array of objects
+                };
+
+                console.log("RESULTS JSON", response.jsonBody.businesses);
+                res.render("matches", parksObj);
 
             });
         });
@@ -191,6 +223,7 @@ module.exports = function(app) {
     });
 
     app.get("/matches", function(req, res){
+
         // Pass in user data for sidebar
         // db.Dogs.findById(1).then(data => {
 
