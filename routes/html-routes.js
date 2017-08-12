@@ -1,5 +1,6 @@
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
+var cookieParser = require('cookie-parser')
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -28,9 +29,19 @@ module.exports = function(app) {
   });
 
   app.get("/new-profile", function(req, res){
+     console.log('Cookies: ', req.cookies); 
     res.render('new_profile_form');
   });
 
+
+  app.get("/profile", function(req, res){
+    res.render('profile');
+  });
+
+  app.get("/preferences", function(req, res){
+    res.render('profile_preferences');
+  });
+  
   app.get("/profile-form-submit", function(req, res){
     res.render('profile_form');
   });

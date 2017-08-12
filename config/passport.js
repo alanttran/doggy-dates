@@ -43,9 +43,9 @@ passport.use(new FacebookStrategy({
     },
     function(accessToken, refreshToken, profile, done) {
         console.log('fb strategy', profile);
-        db.Facebook.findOne({}).then(function(err, user) {
-            if (err)
-                return done(err);
+        db.Facebook.findOne({}).then(function(user) {
+            // if (err)
+            //     return done(err);
             if (user)
                 return done(null, user);
 
