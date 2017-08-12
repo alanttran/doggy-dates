@@ -27,8 +27,14 @@ h2{
 h3{
 	font-family: 'Eczar', serif;
 	text-align: left; 
-	color: white; 
-	text-shadow: 2px 2px 4px #009688;
+	color: #26a69a;
+    font-size: 54px;
+}
+h4{
+	font-family: 'Eczar', serif;
+	text-align: left; 
+	color: steelblue;
+    font-size: 54px;
 }
 .dd-container{
 	min-height: 100%;
