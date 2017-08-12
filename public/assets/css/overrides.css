@@ -14,6 +14,8 @@
 
 .side-nav.fixed{
 	position: absolute;
+	box-shadow: none;
+	border-right: 1px solid #e0e0e0;
 }
 
 .collection{
@@ -21,4 +23,8 @@
 }
 nav .brand-logo{
 	padding-left: 9px;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea{
+	border-bottom-color: black;
 }

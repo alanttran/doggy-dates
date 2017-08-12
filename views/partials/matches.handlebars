@@ -1,10 +1,10 @@
-<h1>Find Your Match</h1>
+<h4>Find Your Match</h4>
 
 <div id="filter-form">
 {{> profile-filter}}
 </div>
 
-<div id="dog-results" class="active">
+<div id="dog-results" class="active" style="margin-right: 30px;">
 
     <table id="dog-table">
 {{!--         <thead>
@@ -20,7 +20,8 @@
             {{#each all_dogs}}
                 <tr class="collection">
                     <td class="image"><img src="{{this.image}}" class="circle" height="120px" width="120px"></td>
-                    <td class="dog_name"><h5>{{this.dog_name}}</h5><h6><i class="material-icons">place</i>{{this.zip_code}}</h6></td>
+                    <td class="dog_name"><h5>{{this.dog_name}}</h5></td>
+                    <td class="zip-code"><i class="material-icons dd-icon-text-align">place</i>{{this.zip_code}}</td>
                     <td class="sex">{{this.sex}}</td>
                     <td class="size">{{this.size}}</td>
                     <td class="energy_level">{{this.energy_level}}</td>
