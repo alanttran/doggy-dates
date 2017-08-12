@@ -11,7 +11,7 @@ module.exports = function(app) {
         successRedirect: "/profile",
         failureRedirect: "/signup"
     }), function(req, res) {
-       console.log("user logged in");
+      
     });
 
     app.post("/profile-form-submit", function(req, res){
