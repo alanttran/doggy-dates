@@ -33,9 +33,18 @@ h3{
 .dd-container{
 	min-height: 100%;
 	margin-bottom: -50px;
-/*	background-image: url("../img/cover_dog.jpg");*/
+
 }
 
+.dd-doggie-background{
+	background: url("../img/cover_dog.jpg") no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: -1;
+	top:0;
+}
 .dd-matches-container{
 	margin-left: 330px;
 	padding-bottom: 80px;

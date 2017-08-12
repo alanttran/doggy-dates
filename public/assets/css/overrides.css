@@ -9,15 +9,16 @@
 }
 
 .side-nav{
-	top: auto;
-	margin-bottom: auto;
-	z-index: -1;
+	height: calc(100% - 51px);
 }
 
 .side-nav.fixed{
-	top: 0;
+	position: absolute;
 }
 
 .collection{
 	margin-bottom: 0;
+}
+nav .brand-logo{
+	padding-left: 9px;
 }

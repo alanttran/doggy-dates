@@ -3,9 +3,13 @@
 {{>sidenav}}
 <div class="dd-matches-container">
     <h1>Your Profile</h1>
-	<div id="user-info">
-		Email: {{user.email}}
+	<div id="user-info" style="max-width: 400px;">
+		Email: 
+		<input value="{{user.email}}" disabled type="text" >
+		
 		<br>
-		Password: {{user.password}}
+		Password: 
+		<input value="{{user.password}}" disabled type="password" >
+		
 	</div>
 </div>
