@@ -12,11 +12,10 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		},
 		zip_code: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER
         },
         dob: {
-			// type: DataTypes.DATEONLY
-			type: DataTypes.INTEGER,
+			type: DataTypes.DATE
 		},
 		energy_level: {
 			type: DataTypes.STRING	

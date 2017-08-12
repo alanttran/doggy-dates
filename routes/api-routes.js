@@ -14,11 +14,50 @@ module.exports = function(app) {
       
     });
 
+
+    app.get("/profile", function(req, res) {
+
+        db.User.findById(1).then(data => {
+
+            console.log('User data:', data);
+
+            let userObj = {
+                user: data //data is a array of objects
+            };
+            res.render('profile', userObj);
+
+        }) 
+
+        // if (!req.user) {
+        //     The user is not logged in, send to login page
+        //     res.json({});
+        // } else {
+        //     The user is logged in, show his account information
+        //     res.json({
+        //         email: req.user.email,
+        //         id: req.user.id
+        //     });
+        // }
+    });
+
     app.post("/profile-form-submit", function(req, res){
         db.Dogs.create(req.body).then(function(data) {
-          res.redirect("/profile");
+          res.redirect("/matches");
         });
     });
+
+
+    app.get("/preferences", function(req, res){
+        // res.render('profile_preferences');
+        db.Dogs.findById(1).then(data => {
+
+        let dogObj = {
+            dog: data //data is a array of objects
+        };
+          res.render('profile_preferences', dogObj);
+        })  
+    });
+
 
     // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
     // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
@@ -128,7 +167,6 @@ module.exports = function(app) {
         }
     });
 
-
     app.get("/matches", function(req, res){
         db.Dogs.findAll().then(data => {
 
@@ -142,18 +180,17 @@ module.exports = function(app) {
     app.post("/matches-submit", function(req, res){
         console.log(req.body);
     });
-
-    app.get("/dog-results", function(req, res){
+    app.get("/matches", function(req, res){
         db.Dogs.findAll().then(data => {
 
         let allDogsObj = {
             all_dogs: data //data is a array of objects
         };
-          res.render('dog_results', allDogsObj);
+          res.render('profile_matches', allDogsObj);
         })     
     });
-
-    app.post("/dog-results-submit", function(req, res){
+      
+    app.post("/matches-submit", function(req, res){
         console.log(req.body);
     });
 
