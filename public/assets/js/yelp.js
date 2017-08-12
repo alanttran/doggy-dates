@@ -1,7 +1,7 @@
 'use strict';
+$(document).ready(function(){
+		$.get( "api/yelp-results", function( data ) {
+		  console.log(data);
+		});
+});
 
-// function displayParks() { 
-// 	$.get( "api/yelp-results", function( data ) {
-// 	  console.log(data);
-// 	});
-// }

@@ -96,25 +96,6 @@ function filterResults(filterObj, activeFilters) {
 		};
 	}
 
-	// ********* Working sort for one filter
-	// let input = $( "#energy_level").val();
-	// console.log(input);
-	// let filter = input.toUpperCase();
-
-	// let table = $("#dog-table");
-	// let tr = $("tr");
-
-	// for (let i = 0; i < tr.length; i++) {
-	// let td = tr[i].getElementsByTagName("td")[2];
-	// console.log(td);
-	// if (td) {
-	// 	if (td.innerHTML.toUpperCase() === filter) {
-	// 	    tr[i].style.display = "";
-	// 	  } else {
-	// 	    tr[i].style.display = "none";
-	// 	  }
-	// 	} 
-	// }
 
 };
 

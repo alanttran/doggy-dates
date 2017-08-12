@@ -1,7 +1,8 @@
 var db = require("../models");
 const yelp = require('yelp-fusion');
 var passport = require("../config/passport");
-var cookieParser = require('cookie-parser')
+let cookie = require("cookie");
+var cookieParser = require('cookie-parser');
 
 module.exports = function(app) {
     // Using the passport.authenticate middleware with our local strategy.
@@ -17,9 +18,9 @@ module.exports = function(app) {
 
     app.get("/profile", function(req, res) {
 
-        db.User.findById(1).then(data => {
+        console.log('Profile req', req);
 
-            console.log('User data:', data);
+        db.User.findById(1).then(data => {
 
             let userObj = {
                 user: data //data is a array of objects
@@ -29,10 +30,10 @@ module.exports = function(app) {
         }) 
 
         // if (!req.user) {
-        //     The user is not logged in, send to login page
+        //     //The user is not logged in, send to login page
         //     res.json({});
         // } else {
-        //     The user is logged in, show his account information
+        //     //The user is logged in, show his account information
         //     res.json({
         //         email: req.user.email,
         //         id: req.user.id
@@ -81,24 +82,6 @@ module.exports = function(app) {
 
     });
 
-    app.get("/api/dog_data", function(req, res) {
-        db.Dogs.findById(1).then(data => {
-
-            // console.log(data.dob);
-
-            // let dob = data.dob
-
-            // let dogObj = {
-            //     dog: data //data is a array of objects
-            // };
-
-            res.json({
-                data: data
-            });   
-        });   
-
-    });
-
     // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
     // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
     // otherwise send back an error
@@ -126,7 +109,7 @@ module.exports = function(app) {
             }).then(function(user) {
                     passport.authenticate("local")(req, res, function(){
                         console.log("user logged in");
-                         console.log('Session ID is', req.user.dataValues.id); 
+                        console.log('Session ID is', req.user.dataValues.id); 
                         // console.log('Cookies: ', req.cookies); 
                         res.redirect("/new-profile");
                         
@@ -229,8 +212,7 @@ module.exports = function(app) {
                     parks: response.jsonBody.businesses //data is a array of objects
                 };
 
-                console.log("RESULTS JSON", response.jsonBody.businesses);
-                res.render("matches", parksObj);
+                res.render("profile_matches", parksObj);
 
             });
         });
