@@ -4,7 +4,7 @@ Find dogs for dates
 
 ## Demo
 
-* [Heroku](https://dashboard.heroku.com/apps/doggie-dates)
+* [Heroku](https://doggie-dates.herokuapp.com/)
 
 ## Slides
 
