@@ -1,0 +1,7 @@
+.dd-profile-filter-container{
+	display: flex; width: 600px; margin: 0 auto;
+}
+
+.dd-profile-filter-container-item{
+	flex: 1 1 auto; padding: 0 15px;
+}

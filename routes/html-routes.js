@@ -37,12 +37,8 @@ module.exports = function(app) {
     res.render('profile');
   });
 
-  app.get("/matches", function(req, res){
-    res.render('matches');
-  });
-
-  app.get("/pet-pref", function(req, res){
-    res.render('pet_pref');
+  app.get("/preferences", function(req, res){
+    res.render('profile_preferences');
   });
 
   app.get("/profile-form-submit", function(req, res){

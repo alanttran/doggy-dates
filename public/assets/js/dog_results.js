@@ -9,21 +9,25 @@ $("select").change(function(event){
 function resetForm() {
  	console.log('resetting ...');
 	$('#dog_form')[0].reset();
+
+	let tr = $("tr");
+	tr[i].style.display = "";
 }
 
 function createFilters() {
 
-	let energy = $( "#energy_level" ).val();
 	let sex = $( "#sex" ).val();
 	let size = $( "#size" ).val();
+	let energy = $( "#energy_level" ).val();
 	
 	let filterObj = {
-		energy: energy,
+		
 		sex: sex, 
-		size: size
+		size: size,
+		energy: energy
 	};
 
-	let filters = [energy, sex, size];
+	let filters = [sex, size, energy];
 
 	let activeFilters = [];
 
@@ -43,22 +47,16 @@ function filterResults(filterObj, activeFilters) {
 	let table = $("#dog-table");
 	let tr = $("tr");
 
-	for (let i = 1; i < tr.length; i++) {
+	for (let i = 0; i < tr.length; i++) {
 
-		let energy_td = tr[i].getElementsByTagName("td")[2];
-		let sex_td = tr[i].getElementsByTagName("td")[3];
-		let size_td = tr[i].getElementsByTagName("td")[4];
+		
+		let sex_td = tr[i].getElementsByTagName("td")[2];
+		let size_td = tr[i].getElementsByTagName("td")[3];
+		let energy_td = tr[i].getElementsByTagName("td")[4];
 
 		let numMatchFilters = 0;
 
 		console.log(energy_td);
-
-		if (energy_td) { 
-			if (filterObj.energy === energy_td.innerHTML) {
-				// energy_td.attr('class', 'active' );
-				numMatchFilters++;
-			}
-		}
 
 		if (sex_td) {
 			if (filterObj.sex === sex_td.innerHTML) {
@@ -73,6 +71,14 @@ function filterResults(filterObj, activeFilters) {
 				numMatchFilters++;
 			}
 		}
+
+		if (energy_td) { 
+			if (filterObj.energy === energy_td.innerHTML) {
+				// energy_td.attr('class', 'active' );
+				numMatchFilters++;
+			}
+		}
+
 		console.log('match filter number', numMatchFilters);
 		console.log('match filter number', activeFilters.length);
 

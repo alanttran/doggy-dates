@@ -104,7 +104,7 @@ module.exports = function(app) {
             // The user is not logged in, send back an empty object
             res.json({});
         } else {
-            
+
             // Set a cookie on login
             res.setHeader('Set-Cookie', cookie.serialize('id', req.user.id, {
               httpOnly: true,
@@ -128,6 +128,21 @@ module.exports = function(app) {
         }
     });
 
+
+    app.get("/matches", function(req, res){
+        db.Dogs.findAll().then(data => {
+
+        let allDogsObj = {
+            all_dogs: data //data is a array of objects
+        };
+          res.render('profile_matches', allDogsObj);
+        })     
+    });
+
+    app.post("/matches-submit", function(req, res){
+        console.log(req.body);
+    });
+
     app.get("/dog-results", function(req, res){
         db.Dogs.findAll().then(data => {
 
@@ -139,16 +154,7 @@ module.exports = function(app) {
     });
 
     app.post("/dog-results-submit", function(req, res){
-
         console.log(req.body);
-
-        // db.Dogs.findAll().then(data => {
-
-        //     let allDogsObj = {
-        //         all_dogs: data //data is a array of objects
-        //     };
-        //     res.render('dog_results', allDogsObj);
-        // })     
     });
 
     // Redirect the user to Facebook for authentication.  When complete,
