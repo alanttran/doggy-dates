@@ -2,8 +2,9 @@
 	height: 64px;
 	color: #fff;
     font-size: 2.1rem;
-    padding-top: 7px;
-        background-color: #ee6e73;
+    padding-top: 9px;
+    padding-left: 12px;
+    background-color: #40c4ff;
 }
 
 .sidenav-header a{
