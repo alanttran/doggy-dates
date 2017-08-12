@@ -33,7 +33,6 @@ module.exports = function(app) {
     res.render('new_profile_form');
   });
 
-
   // app.get("/profile", function(req, res){
   //   res.render('profile');
   // });
@@ -41,7 +40,7 @@ module.exports = function(app) {
   // app.get("/preferences", function(req, res){
   //   res.render('profile_preferences');
   // });
-  
+
   app.get("/profile-form-submit", function(req, res){
     res.render('profile_form');
   });
