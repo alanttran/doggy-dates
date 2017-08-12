@@ -1,6 +1,6 @@
-# Doggie Date
+# Doggie Dates
 
-Find dogs for dates
+Find dogs for play dates
 
 ## Demo
 
